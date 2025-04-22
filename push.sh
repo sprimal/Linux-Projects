@@ -19,7 +19,7 @@ fi
 git remote add origin "$REPO_URL"
 
 #  Get current branch name (e.g., main, master, etc.)
-BRANCH_NAME= "main"
+BRANCH_NAME="main"
 
 # Add, commit, and push
 git add .
