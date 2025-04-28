@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# Name: Swoumya Prasad Rimal
+# A script to check even/odd numbers
+# compare strings
+# check for leap years
+# classify input types
+
+# Function to check if a number is even or odd
+function EvenOdd() {
+    read -p "Enter a number: " num
+    if (( num % 2 == 0 )); then
+        echo "$num is Even."
+    else
+        echo "$num is Odd."
+    fi
+}
+
+# Function to check if two strings are equal
+function StringCompare() {
+    read -p "Enter first string: " str1
+    read -p "Enter second string: " str2
+    if [ "$str1" == "$str2" ]; then
+        echo "Strings are equal."
+    else
+        echo "Strings are not equal."
+    fi
+}
+
+# Function to check if a year is a leap year
+function LeapYear() {
+    read -p "Enter a year: " year
+    if (( (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) )); then
+        echo "$year is a Leap Year."
+    else
+        echo "$year is not a Leap Year."
+    fi
+}
+
+# Function to check if input is a number, string, or special character using case
+function InputType() {
+    read -p "Enter any input: " input
+    case "$input" in
+        [0-9]*)
+            echo "Input is a Number."
+            ;;
+        [a-zA-Z]*)
+            echo "Input is a String."
+            ;;
+        *)
+            echo "Input is a Special Character."
+            ;;
+    esac
+}
+
+
+EvenOdd
+StringCompare
+LeapYear
+InputType
+
+#partB
+# Function to convert Celsius to Fahrenheit
+function CtoF() {
+    read -p "Enter temperature in Celsius: " celsius
+    fahrenheit=$(echo "scale=2; ($celsius * 9/5) + 32" | bc)
+    echo "$celsius°C is equal to $fahrenheit°F"
+}
+
+# Function to convert miles to kilometers
+function milestoKm() {
+    read -p "Enter the mile to convert to kilometers: " miles
+    km=$(echo "scale=2; $miles * 1.609344" | bc)
+    echo "$miles miles is equal to $km km"
+}
+
+
+CtoF
+milestoKm
